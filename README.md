@@ -4,7 +4,7 @@ Student material for the second part of the course (convolutional networks and l
 
 | Session | Notebook (Colab) | Slides | Files |
 |---|---|---|---|
-| S1 · Convolutional networks I (6 Nov 2026) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/profesanti/FDLE/blob/main/S1_CNN/S1_CNN_STUDENT.ipynb) | [S1 slides](https://profesanti.github.io/FDLE/S1_CNN/S1_CNN.html) | [S1_CNN/](S1_CNN/) |
+| S1 · Convolutional networks I (6 Nov 2026) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/santialferez/FDLE/blob/main/S1_CNN/S1_CNN_STUDENT.ipynb) | [S1 slides](https://santialferez.github.io/FDLE/S1_CNN/S1_CNN.html) | [S1_CNN/](S1_CNN/) |
 
 ## How to use the notebooks
 
