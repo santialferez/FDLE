@@ -2319,11 +2319,12 @@ h1, h2, h3 { break-after: avoid; }
   <li><a href="#todo-3-a-residual-block-s2l1todo3" id="toc-todo-3-a-residual-block-s2l1todo3" class="nav-link" data-scroll-target="#todo-3-a-residual-block-s2l1todo3"><span class="header-section-number">5.4</span> TODO 3 · a residual block (<code>S2·L1·TODO3</code>)</a></li>
   <li><a href="#l13-the-gradient-with-and-without-skips-s2l13" id="toc-l13-the-gradient-with-and-without-skips-s2l13" class="nav-link" data-scroll-target="#l13-the-gradient-with-and-without-skips-s2l13"><span class="header-section-number">5.5</span> L1·3 · the gradient with and without skips (<code>S2·L1·3</code>)</a></li>
   </ul></li>
-  <li><a href="#lab-2-grad-cam-then-fool-the-network" id="toc-lab-2-grad-cam-then-fool-the-network" class="nav-link" data-scroll-target="#lab-2-grad-cam-then-fool-the-network"><span class="header-section-number">6</span> Lab 2 · Grad-CAM, then fool the network</a>
+  <li><a href="#lab-2-what-the-first-and-the-last-layers-see" id="toc-lab-2-what-the-first-and-the-last-layers-see" class="nav-link" data-scroll-target="#lab-2-what-the-first-and-the-last-layers-see"><span class="header-section-number">6</span> Lab 2 · What the first and the last layers see</a>
   <ul class="collapse">
   <li><a href="#l21-filters-and-feature-maps-s2l21" id="toc-l21-filters-and-feature-maps-s2l21" class="nav-link" data-scroll-target="#l21-filters-and-feature-maps-s2l21"><span class="header-section-number">6.1</span> L2·1 · filters and feature maps (<code>S2·L2·1</code>)</a></li>
-  <li><a href="#todo-1-grad-cam-s2l2todo1" id="toc-todo-1-grad-cam-s2l2todo1" class="nav-link" data-scroll-target="#todo-1-grad-cam-s2l2todo1"><span class="header-section-number">6.2</span> TODO 1 · Grad-CAM (<code>S2·L2·TODO1</code>)</a></li>
-  <li><a href="#todo-2-fool-the-network-with-fgsm-s2l2todo2" id="toc-todo-2-fool-the-network-with-fgsm-s2l2todo2" class="nav-link" data-scroll-target="#todo-2-fool-the-network-with-fgsm-s2l2todo2"><span class="header-section-number">6.3</span> TODO 2 · fool the network with FGSM (<code>S2·L2·TODO2</code>)</a></li>
+  <li><a href="#todo-1-how-big-is-one-cell-of-layer4-s2l2todo1" id="toc-todo-1-how-big-is-one-cell-of-layer4-s2l2todo1" class="nav-link" data-scroll-target="#todo-1-how-big-is-one-cell-of-layer4-s2l2todo1"><span class="header-section-number">6.2</span> TODO 1 · How big is one cell of layer4? (<code>S2·L2·TODO1</code>)</a></li>
+  <li><a href="#optional-a-grad-cam-s2l2opt1" id="toc-optional-a-grad-cam-s2l2opt1" class="nav-link" data-scroll-target="#optional-a-grad-cam-s2l2opt1"><span class="header-section-number">6.3</span> ★ Optional A · Grad-CAM (<code>S2·L2·OPT1</code>)</a></li>
+  <li><a href="#optional-b-fool-the-network-with-fgsm-s2l2opt2" id="toc-optional-b-fool-the-network-with-fgsm-s2l2opt2" class="nav-link" data-scroll-target="#optional-b-fool-the-network-with-fgsm-s2l2opt2"><span class="header-section-number">6.4</span> ★ Optional B · fool the network with FGSM (<code>S2·L2·OPT2</code>)</a></li>
   </ul></li>
   <li><a href="#lab-3-transfer-learning" id="toc-lab-3-transfer-learning" class="nav-link" data-scroll-target="#lab-3-transfer-learning"><span class="header-section-number">7</span> Lab 3 · Transfer learning</a>
   <ul class="collapse">
@@ -2364,7 +2365,7 @@ h1, h2, h3 { break-after: avoid; }
 </div>
 <section id="how-to-use-this-guide-and-the-notebook" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> How to use this guide and the notebook</h1>
-<p>The notebook looks long, but you write very little. In total there are <strong>26 blanks (<code>___</code>) in 12 cells</strong>. Each blank is one number, one name or one short expression. All the rest is code that is already written: you only <strong>run</strong> it. <strong>You do not need to understand every line of the helper cells</strong> (the big setup cell <code>S2·0</code> and the training loop of Lab 3). They download data, try backup sources and draw plots. This guide tells you which lines matter and calls the rest “plumbing”.</p>
+<p>The notebook looks long, but you write very little. In total there are <strong>28 blanks (<code>___</code>) in 13 cells</strong>. Each blank is one number, one name or one short expression. All the rest is code that is already written: you only <strong>run</strong> it. <strong>You do not need to understand every line of the helper cells</strong> (the big setup cell <code>S2·0</code> and the training loop of Lab 3). They download data, try backup sources and draw plots. This guide tells you which lines matter and calls the rest “plumbing”.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 21%">
@@ -2429,9 +2430,9 @@ h1, h2, h3 { break-after: avoid; }
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Lab 2</td>
-<td style="text-align: left;">TODO 1, 2</td>
-<td style="text-align: center;">5</td>
-<td style="text-align: left;">the dimensions of a mean and of a sum, the FGSM step</td>
+<td style="text-align: left;">TODO 1 (★ A, ★ B)</td>
+<td style="text-align: center;">2 (★ 5)</td>
+<td style="text-align: left;">where the shape of the maps starts, the width of the photo (★ A: the dimensions of a mean and of a sum; ★ B: the FGSM step)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Lab 3</td>
@@ -2447,6 +2448,7 @@ h1, h2, h3 { break-after: avoid; }
 </tr>
 </tbody>
 </table>
+<p>In Lab 2 only TODO 1 is required. The two ★ Optional cells (Grad-CAM and FGSM) are for fast pairs and can be skipped: nothing later needs them.</p>
 <p><strong>How to work.</strong> (1) Runtime, Change runtime type, <strong>T4 GPU</strong>. (2) Run <code>S2·0</code> first and wait for <code>setup ready</code>. (3) Go from top to bottom: a ✏ cell, then its ✅ cell. (4) If a cell turns red, read the <strong>last line</strong> of the red text, then the line with an arrow <code>----&gt;</code> above it. (5) <strong>One failed cell makes the cells below fail too.</strong> Fix the first red cell, run it, then rerun the ones that failed after it. (6) Stuck for three minutes? Ask your partner, then the lecturer.</p>
 <div class="callout callout-style-simple callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -2969,8 +2971,9 @@ Figure 4: A plain block and a residual block, as in the <code>Block</code> clas
 <p><strong>Expect:</strong> the gradient without skips is about a thousand times smaller (the ✅ line prints your ratio), the plot’s two lines drift apart, then <code>REPORT: % of parameters in FC layers · VGG-16 ... · ResNet18 ... · gradient ratio skip/plain ...</code>. <strong>Without skips the first layer gets a tiny signal and learns very slowly; with skips the gradient has a direct path back.</strong> The ★ cell prints the ratio for 2 to 30 blocks.</p>
 </section>
 </section>
-<section id="lab-2-grad-cam-then-fool-the-network" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Lab 2 · Grad-CAM, then fool the network</h1>
+<section id="lab-2-what-the-first-and-the-last-layers-see" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Lab 2 · What the first and the last layers see</h1>
+<p>Required for every pair: L2·1 and TODO 1. The two ★ Optional sections after them are for fast pairs.</p>
 <section id="l21-filters-and-feature-maps-s2l21" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="l21-filters-and-feature-maps-s2l21"><span class="header-section-number">6.1</span> L2·1 · filters and feature maps (<code>S2·L2·1</code>)</h2>
 <p><strong>What it does.</strong> Draws the 64 filters of the first layer, then keeps the outputs of two inner layers with <strong>forward hooks</strong> and draws 8 maps of each. <strong>In:</strong> the cat photo. <strong>Out:</strong> <code>layer1</code> <code>(1, 64, 56, 56)</code> and <code>layer4</code> <code>(1, 512, 7, 7)</code>.</p>
@@ -3028,8 +3031,70 @@ Figure 4: A plain block and a residual block, as in the <code>Block</code> clas
 </table>
 <p><strong>Expect:</strong> first-layer filters like edges at several angles and colour blobs; <code>layer1</code> maps still look like the cat (56 × 56); <code>layer4</code> maps are tiny (7 × 7).</p>
 </section>
-<section id="todo-1-grad-cam-s2l2todo1" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="todo-1-grad-cam-s2l2todo1"><span class="header-section-number">6.2</span> TODO 1 · Grad-CAM (<code>S2·L2·TODO1</code>)</h2>
+<section id="todo-1-how-big-is-one-cell-of-layer4-s2l2todo1" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="todo-1-how-big-is-one-cell-of-layer4-s2l2todo1"><span class="header-section-number">6.2</span> TODO 1 · How big is one cell of layer4? (<code>S2·L2·TODO1</code>)</h2>
+<p><strong>What it does.</strong> L2·1 kept the output of <code>layer4</code> in <code>maps[&quot;layer4&quot;]</code>. This cell reads its shape and works out how many pixels of the photo one cell of a map stands for. <strong>In:</strong> <code>maps[&quot;layer4&quot;]</code> from L2·1 (so run <code>S2·0</code> and L2·1 first) and the shape of the cat photo. <strong>Out:</strong> <code>n_maps</code>, <code>h</code>, <code>w</code> (how many maps, and the height and width of one map, in cells) and <code>cell_px</code> (the side, in pixels, of the square of the photo that one cell covers).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ✏️ S2·L2·TODO1</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;layer4 output:&quot;</span>, <span class="bu">tuple</span>(maps[<span class="st">&quot;layer4&quot;</span>].shape))      <span class="co"># (photos, maps, height, width)</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: skip the first number (1 photo): at which position do the maps, the height and the width start?</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>n_maps, h, w <span class="op">=</span> maps[<span class="st">&quot;layer4&quot;</span>].shape[___:]                 <span class="co"># number of maps, and the size of one map in cells</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: how many pixels wide is the photo? (look at the shape of PHOTOS_224[&quot;cat&quot;])</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>cell_px <span class="op">=</span> ___ <span class="op">//</span> w                                     <span class="co"># pixels of the photo per cell, along one side</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;layer4: </span><span class="sc">{</span>n_maps<span class="sc">}</span><span class="ss"> maps of </span><span class="sc">{</span>h<span class="sc">}</span><span class="ss"> × </span><span class="sc">{</span>w<span class="sc">}</span><span class="ss"> cells · one cell = </span><span class="sc">{</span>cell_px<span class="sc">}</span><span class="ss"> × </span><span class="sc">{</span>cell_px<span class="sc">}</span><span class="ss"> pixels of the photo&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 41%">
+<col style="width: 58%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>maps[&quot;layer4&quot;].shape</code></td>
+<td style="text-align: left;">The shape of the output of <code>layer4</code>: four numbers <code>(photos, maps, height, width)</code>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>shape[___:]</code></td>
+<td style="text-align: left;">A <strong>slice</strong>: the numbers from one position to the end, so the result has fewer numbers.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>n_maps, h, w = ...</code></td>
+<td style="text-align: left;"><strong>Unpacking</strong>: three names on the left need exactly three values on the right.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>___ // w</code></td>
+<td style="text-align: left;"><code>//</code> is integer division: the photo side divided by the number of cells per side.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>print(f&quot;layer4: ...&quot;)</code></td>
+<td style="text-align: left;">Prints the numbers you found. The ✅ cell below prints the same line as the REPORT line.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hints ✏ (two blanks).</strong></p>
+<ul>
+<li>First blank: positions in a shape count from 0, like in a list. You want to skip the first number (the photos) and keep the other three. Which position does the slice start at?</li>
+<li>Second blank: look at the TODO comment: it points to the shape of <code>PHOTOS_224[&quot;cat&quot;]</code>, which is <code>(1, 3, height, width)</code>. One side of the photo, in pixels, divided by the number of cells on one side of the map, is the number of pixels in one cell. The photo is square, so the width is enough.</li>
+</ul>
+<p><strong>Typical errors.</strong></p>
+<ul>
+<li><code>ValueError: too many values to unpack (expected 3)</code>: your slice also kept the number of photos, so you have four values for three names. Move the start of the slice by one.</li>
+<li><code>ValueError: not enough values to unpack (expected 3, got 2)</code>: the slice starts too far to the right.</li>
+<li><code>TypeError: slice indices must be integers or None ...</code> or <code>TypeError: unsupported operand type(s) for //: &#39;str&#39; and &#39;int&#39;</code>: a <code>___</code> is still in the cell.</li>
+<li><code>KeyError: &#39;layer4&#39;</code> or <code>NameError: name &#39;maps&#39; is not defined</code>: run <code>S2·0</code> and then L2·1 (the hooks fill <code>maps</code>).</li>
+</ul>
+<p><strong>Expect:</strong> the first print shows <code>layer4 output: (1, 512, 7, 7)</code>. After your blanks, <code>layer4: 512 maps of 7 × 7 cells · one cell = P × P pixels of the photo</code>, where <code>P</code> is the number you compute. That number is also the answer to the Moodle question of Lab 2, so work it out yourself and check that it makes sense: a map of 7 × 7 cells has to cover the whole photo. The ✅ cell checks the three numbers, saves them for the reference file (you can skip that part) and prints the line you report:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># S2·L2·TODO1·check (extract)</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>report_line(<span class="st">&quot;Lab 2&quot;</span>, <span class="ss">f&quot;layer4: </span><span class="sc">{</span>n_maps<span class="sc">}</span><span class="ss"> maps of </span><span class="sc">{</span>h<span class="sc">}</span><span class="ss"> × </span><span class="sc">{</span>w<span class="sc">}</span><span class="ss"> · one cell = </span><span class="sc">{</span>cell_px<span class="sc">}</span><span class="ss"> × </span><span class="sc">{</span>cell_px<span class="sc">}</span><span class="ss"> pixels&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>so the REPORT line has the form <code>REPORT: layer4: 512 maps of 7 × 7 · one cell = P × P pixels</code>, with the same <code>P</code>.</p>
+</section>
+<section id="optional-a-grad-cam-s2l2opt1" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="optional-a-grad-cam-s2l2opt1"><span class="header-section-number">6.3</span> ★ Optional A · Grad-CAM (<code>S2·L2·OPT1</code>)</h2>
+<p>★ For fast pairs: you can skip this section. Nothing later needs it (only the ★ cell at the end of Lab 2 uses <code>grad_cam</code>).</p>
 <p><strong>The idea.</strong> Which part of the photo made the network say “espresso”? <code>layer4</code> has 512 maps of 7 × 7. Weight each map by <strong>how much it matters for the class score</strong> (the average gradient of the score with respect to that map), add them, and look at the 7 × 7 result as a heat map.</p>
 <div id="fig-gradcam" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -3041,42 +3106,42 @@ Figure 5: Grad-CAM: one forward hook keeps <code>acts</code>, a second hook on 
 </figcaption>
 </figure>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ✏️ S2·L2·TODO1</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> grad_cam(x, class_idx<span class="op">=</span><span class="va">None</span>):</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Grad-CAM map (1, 7, 7) of image x (pixels in [0, 1]) for one class (None = the top-1 class).&quot;&quot;&quot;</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    store <span class="op">=</span> {}                                   <span class="co"># the two hooks put acts and grads here</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> save_grad(g):                            <span class="co"># gradient hook: d(score) / d(acts), called by backward()</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>        store[<span class="st">&quot;grads&quot;</span>] <span class="op">=</span> g</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> save_acts(module, inp, out):             <span class="co"># forward hook on layer4, called by the forward pass</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>        store[<span class="st">&quot;acts&quot;</span>] <span class="op">=</span> out                      <span class="co"># (1, 512, 7, 7): 512 maps of 7 × 7</span></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>        out.register_hook(save_grad)             <span class="co"># ask for the gradient of these maps too</span></span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    handle <span class="op">=</span> resnet.layer4.register_forward_hook(save_acts)</span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>        logits <span class="op">=</span> resnet(imagenet_norm(x))        <span class="co"># (1, 1000): one score per class</span></span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> class_idx <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>            class_idx <span class="op">=</span> logits.argmax(dim<span class="op">=</span><span class="dv">1</span>).item()</span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>        logits[<span class="dv">0</span>, class_idx].backward()          <span class="co"># gradient of ONE class score</span></span>
-<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">finally</span>:</span>
-<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>        handle.remove()                          <span class="co"># remove the hook, even if something failed</span></span>
-<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>        resnet.zero_grad(set_to_none<span class="op">=</span><span class="va">True</span>)       <span class="co"># forget the gradients of the weights (we do not train)</span></span>
-<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>    acts <span class="op">=</span> store[<span class="st">&quot;acts&quot;</span>].detach()                <span class="co"># (1, 512, 7, 7)</span></span>
-<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>    grads <span class="op">=</span> store[<span class="st">&quot;grads&quot;</span>]                       <span class="co"># (1, 512, 7, 7)</span></span>
-<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: average over the 7 × 7 positions: which two dimensions of (1, 512, 7, 7) are height and width?</span></span>
-<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> grads.mean(dim<span class="op">=</span>(___, ___), keepdim<span class="op">=</span><span class="va">True</span>)               <span class="co"># (1, 512, 1, 1): one weight per map</span></span>
-<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: add up the 512 weighted maps: which dimension counts the maps?</span></span>
-<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>    cam <span class="op">=</span> F.relu((w <span class="op">*</span> acts).<span class="bu">sum</span>(dim<span class="op">=</span>___))                      <span class="co"># (1, 7, 7): weighted sum of the 512 maps</span></span>
-<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> cam, class_idx</span>
-<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a><span class="co"># None = the top-1 class (espresso). Try another one, e.g. CLASS = categories.index(&quot;cup&quot;)</span></span>
-<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>CLASS <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>cam, cam_cls <span class="op">=</span> grad_cam(PHOTOS_224[<span class="st">&quot;coffee&quot;</span>], CLASS)</span>
-<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;class:&quot;</span>, categories[cam_cls], <span class="st">&quot;· map&quot;</span>, <span class="bu">tuple</span>(cam.shape))</span>
-<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>cam_scaled <span class="op">=</span> cam[<span class="dv">0</span>] <span class="op">/</span> cam.<span class="bu">max</span>()                  <span class="co"># (7, 7) scaled so that the largest value is 1</span></span>
-<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cam_scaled.cpu().numpy().<span class="bu">round</span>(<span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ✏️ S2·L2·OPT1</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> grad_cam(x, class_idx<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Grad-CAM map (1, 7, 7) of image x (pixels in [0, 1]) for one class (None = the top-1 class).&quot;&quot;&quot;</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    store <span class="op">=</span> {}                                   <span class="co"># the two hooks put acts and grads here</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> save_grad(g):                            <span class="co"># gradient hook: d(score) / d(acts), called by backward()</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        store[<span class="st">&quot;grads&quot;</span>] <span class="op">=</span> g</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> save_acts(module, inp, out):             <span class="co"># forward hook on layer4, called by the forward pass</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>        store[<span class="st">&quot;acts&quot;</span>] <span class="op">=</span> out                      <span class="co"># (1, 512, 7, 7): 512 maps of 7 × 7</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>        out.register_hook(save_grad)             <span class="co"># ask for the gradient of these maps too</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    handle <span class="op">=</span> resnet.layer4.register_forward_hook(save_acts)</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>        logits <span class="op">=</span> resnet(imagenet_norm(x))        <span class="co"># (1, 1000): one score per class</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> class_idx <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>            class_idx <span class="op">=</span> logits.argmax(dim<span class="op">=</span><span class="dv">1</span>).item()</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>        logits[<span class="dv">0</span>, class_idx].backward()          <span class="co"># gradient of ONE class score</span></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">finally</span>:</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>        handle.remove()                          <span class="co"># remove the hook, even if something failed</span></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>        resnet.zero_grad(set_to_none<span class="op">=</span><span class="va">True</span>)       <span class="co"># forget the gradients of the weights (we do not train)</span></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>    acts <span class="op">=</span> store[<span class="st">&quot;acts&quot;</span>].detach()                <span class="co"># (1, 512, 7, 7)</span></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>    grads <span class="op">=</span> store[<span class="st">&quot;grads&quot;</span>]                       <span class="co"># (1, 512, 7, 7)</span></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: average over the 7 × 7 positions: which two dimensions of (1, 512, 7, 7) are height and width?</span></span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>    w <span class="op">=</span> grads.mean(dim<span class="op">=</span>(___, ___), keepdim<span class="op">=</span><span class="va">True</span>)               <span class="co"># (1, 512, 1, 1): one weight per map</span></span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: add up the 512 weighted maps: which dimension counts the maps?</span></span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>    cam <span class="op">=</span> F.relu((w <span class="op">*</span> acts).<span class="bu">sum</span>(dim<span class="op">=</span>___))                      <span class="co"># (1, 7, 7): weighted sum of the 512 maps</span></span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> cam, class_idx</span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a><span class="co"># None = the top-1 class (espresso). Try another one, e.g. CLASS = categories.index(&quot;cup&quot;)</span></span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>CLASS <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>cam, cam_cls <span class="op">=</span> grad_cam(PHOTOS_224[<span class="st">&quot;coffee&quot;</span>], CLASS)</span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;class:&quot;</span>, categories[cam_cls], <span class="st">&quot;· map&quot;</span>, <span class="bu">tuple</span>(cam.shape))</span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a>cam_scaled <span class="op">=</span> cam[<span class="dv">0</span>] <span class="op">/</span> cam.<span class="bu">max</span>()                  <span class="co"># (7, 7) scaled so that the largest value is 1</span></span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cam_scaled.cpu().numpy().<span class="bu">round</span>(<span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 41%">
@@ -3111,16 +3176,17 @@ Figure 5: Grad-CAM: one forward hook keeps <code>acts</code>, a second hook on 
 </tr>
 </tbody>
 </table>
-<p><strong>Hints ✏ (three blanks).</strong> <code>acts</code> and <code>grads</code> have shape <code>(1, 512, 7, 7)</code>. Count axes from 0: which two are the 7 × 7 positions? Those are averaged. The sum adds the 512 maps: along which axis do they live? <strong>Expect:</strong> <code>class: espresso</code> and a 7 × 7 grid of numbers from 0 to 1 (the largest is the hottest cell). The ✅ cell draws an overlay and prints the hottest cell, the REPORT of this lab. Two lines of it are worth reading:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># S2·L2·TODO1·check (extract)</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>flat_index <span class="op">=</span> cam[<span class="dv">0</span>].argmax().item()             <span class="co"># position of the largest value among the 49 cells (0 to 48)</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>hot_cell <span class="op">=</span> <span class="bu">divmod</span>(flat_index, <span class="dv">7</span>)                <span class="co"># -&gt; (row, col) in the 7 × 7 grid</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ...</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>heat <span class="op">=</span> F.interpolate(cam[<span class="va">None</span>], size<span class="op">=</span><span class="dv">224</span>, mode<span class="op">=</span><span class="st">&quot;bilinear&quot;</span>, align_corners<span class="op">=</span><span class="va">False</span>)[<span class="dv">0</span>, <span class="dv">0</span>].cpu()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>flat_index</code> counts the 49 cells from 0 to 48, row by row; <code>divmod(a, 7)</code> gives the quotient and remainder: the row and the column. <code>F.interpolate(cam[None], size=224, ...)</code> stretches the 7 × 7 map to 224 × 224 for the overlay (<code>cam[None]</code> adds the batch axis it needs). Look at the overlay: is the heat where you expected? <strong>If you see:</strong> <code>TypeError: mean(): argument &#39;dim&#39; must be tuple of ints, not tuple</code> and then <code>NameError: name &#39;cam&#39; is not defined</code>: the blanks of the <code>mean</code> are still <code>___</code>.</p>
+<p><strong>Hints ✏ (three blanks).</strong> <code>acts</code> and <code>grads</code> have shape <code>(1, 512, 7, 7)</code>. Count axes from 0: which two are the 7 × 7 positions? Those are averaged. The sum adds the 512 maps: along which axis do they live? <strong>Expect:</strong> <code>class: espresso</code> and a 7 × 7 grid of numbers from 0 to 1 (the largest is the hottest cell). The ✅ cell draws an overlay and prints a line <code>★ Grad-CAM hottest cell (row, col) = ...</code> (a ★ line, not a REPORT line). Two lines of it are worth reading:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># S2·L2·OPT1·check (extract)</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>flat_index <span class="op">=</span> cam[<span class="dv">0</span>].argmax().item()             <span class="co"># position of the largest value among the 49 cells (0 to 48)</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>hot_cell <span class="op">=</span> <span class="bu">divmod</span>(flat_index, <span class="dv">7</span>)                <span class="co"># -&gt; (row, col) in the 7 × 7 grid</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ...</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>heat <span class="op">=</span> F.interpolate(cam[<span class="va">None</span>], size<span class="op">=</span><span class="dv">224</span>, mode<span class="op">=</span><span class="st">&quot;bilinear&quot;</span>, align_corners<span class="op">=</span><span class="va">False</span>)[<span class="dv">0</span>, <span class="dv">0</span>].cpu()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>flat_index</code> counts the 49 cells from 0 to 48, row by row; <code>divmod(a, 7)</code> gives the quotient and remainder: the row and the column. <code>F.interpolate(cam[None], size=224, ...)</code> stretches the 7 × 7 map to 224 × 224 for the overlay (<code>cam[None]</code> adds the batch axis it needs). Look at the overlay: is the heat where you expected? (The ★ question Q1 under the cell asks this.) <strong>If you see:</strong> <code>TypeError: mean(): argument &#39;dim&#39; must be tuple of ints, not tuple</code> and then <code>NameError: name &#39;cam&#39; is not defined</code>: the blanks of the <code>mean</code> are still <code>___</code>.</p>
 </section>
-<section id="todo-2-fool-the-network-with-fgsm-s2l2todo2" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="todo-2-fool-the-network-with-fgsm-s2l2todo2"><span class="header-section-number">6.3</span> TODO 2 · fool the network with FGSM (<code>S2·L2·TODO2</code>)</h2>
+<section id="optional-b-fool-the-network-with-fgsm-s2l2opt2" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="optional-b-fool-the-network-with-fgsm-s2l2opt2"><span class="header-section-number">6.4</span> ★ Optional B · fool the network with FGSM (<code>S2·L2·OPT2</code>)</h2>
+<p>★ For fast pairs: you can skip this section. It does <strong>not</strong> need Optional A: it only needs <code>S2·0</code>.</p>
 <p><strong>The idea.</strong> The fast gradient sign method moves every pixel by a tiny <code>ε</code> in the direction that <strong>increases the loss</strong>: take the gradient of the loss with respect to the <strong>pixels</strong> (not the weights), keep its direction, scale by <code>ε</code>, add, and stay inside <code>[0, 1]</code>.</p>
 <div id="fig-fgsm" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="H">
 <figure class="quarto-float quarto-float-fig figure">
@@ -3132,38 +3198,38 @@ Figure 6: FGSM in one picture.
 </figcaption>
 </figure>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ✏️ S2·L2·TODO2</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Normalized(nn.Module):</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Pixels in [0, 1] in, logits out: the ImageNet normalization is inside the model.&quot;&quot;&quot;</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, model):</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model <span class="op">=</span> model</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):                            <span class="co"># x: pixels in [0, 1]</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.model(imagenet_norm(x))</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>net <span class="op">=</span> Normalized(resnet).<span class="bu">eval</span>()</span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>EPS <span class="op">=</span> [<span class="fl">0.001</span>, <span class="fl">0.002</span>, <span class="fl">0.005</span>, <span class="fl">0.01</span>, <span class="fl">0.02</span>, <span class="fl">0.05</span>, <span class="fl">0.1</span>]   <span class="co"># 0.001 = 0.1% of the pixel range</span></span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> PHOTOS_224[<span class="st">&quot;coffee&quot;</span>].clone().requires_grad_(<span class="va">True</span>)   <span class="co"># (1, 3, 224, 224); we want the gradient w.r.t. x</span></span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>logits <span class="op">=</span> net(x)                                      <span class="co"># (1, 1000)</span></span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>y_clean <span class="op">=</span> logits.argmax(dim<span class="op">=</span><span class="dv">1</span>)                       <span class="co"># the class the network sees now</span></span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>loss <span class="op">=</span> F.cross_entropy(logits, y_clean)</span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>loss.backward()                                      <span class="co"># x.grad: how the loss changes with each pixel</span></span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>resnet.zero_grad(set_to_none<span class="op">=</span><span class="va">True</span>)                   <span class="co"># we do not train: forget the weight gradients</span></span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>probs_clean <span class="op">=</span> F.softmax(logits.detach(), dim<span class="op">=</span><span class="dv">1</span>)[<span class="dv">0</span>]   <span class="co"># (1000,) probabilities</span></span>
-<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>p_clean <span class="op">=</span> probs_clean[y_clean].item()</span>
-<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;clean photo: </span><span class="sc">{</span>categories[y_clean.item()]<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span><span class="dv">100</span> <span class="op">*</span> p_clean<span class="sc">:.1f}</span><span class="ss">%)&quot;</span>)</span>
-<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>fgsm <span class="op">=</span> []                                            <span class="co"># one row per eps: (eps, class, probability, photo)</span></span>
-<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> torch.no_grad():</span>
-<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> eps <span class="kw">in</span> EPS:</span>
-<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>        <span class="co"># </span><span class="al">TODO</span><span class="co">: move every pixel by eps in the direction of the gradient: which function keeps only +1 or -1?</span></span>
-<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>        x_adv <span class="op">=</span> (x <span class="op">+</span> ___ <span class="op">*</span> x.grad.___()).clamp(<span class="dv">0</span>, <span class="dv">1</span>)    <span class="co"># every pixel moves by +eps or -eps</span></span>
-<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>        probs <span class="op">=</span> F.softmax(net(x_adv), dim<span class="op">=</span><span class="dv">1</span>)[<span class="dv">0</span>]      <span class="co"># (1000,) probabilities for the changed photo</span></span>
-<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>        top1, conf <span class="op">=</span> probs.argmax().item(), probs.<span class="bu">max</span>().item()</span>
-<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>        fgsm.append((eps, top1, conf, x_adv))</span>
-<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;ε = </span><span class="sc">{</span>eps<span class="sc">:&lt;6}</span><span class="ss"> top-1: </span><span class="sc">{</span>categories[top1]<span class="sc">:22s}</span><span class="ss"> </span><span class="sc">{</span><span class="dv">100</span> <span class="op">*</span> conf<span class="sc">:5.1f}</span><span class="ss">%&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ✏️ S2·L2·OPT2</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Normalized(nn.Module):</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Pixels in [0, 1] in, logits out: the ImageNet normalization is inside the model.&quot;&quot;&quot;</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, model):</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model <span class="op">=</span> model</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):                            <span class="co"># x: pixels in [0, 1]</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.model(imagenet_norm(x))</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>net <span class="op">=</span> Normalized(resnet).<span class="bu">eval</span>()</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>EPS <span class="op">=</span> [<span class="fl">0.001</span>, <span class="fl">0.002</span>, <span class="fl">0.005</span>, <span class="fl">0.01</span>, <span class="fl">0.02</span>, <span class="fl">0.05</span>, <span class="fl">0.1</span>]   <span class="co"># 0.001 = 0.1% of the pixel range</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> PHOTOS_224[<span class="st">&quot;coffee&quot;</span>].clone().requires_grad_(<span class="va">True</span>)   <span class="co"># (1, 3, 224, 224); we want the gradient w.r.t. x</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>logits <span class="op">=</span> net(x)                                      <span class="co"># (1, 1000)</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>y_clean <span class="op">=</span> logits.argmax(dim<span class="op">=</span><span class="dv">1</span>)                       <span class="co"># the class the network sees now</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>loss <span class="op">=</span> F.cross_entropy(logits, y_clean)</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>loss.backward()                                      <span class="co"># x.grad: how the loss changes with each pixel</span></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>resnet.zero_grad(set_to_none<span class="op">=</span><span class="va">True</span>)                   <span class="co"># we do not train: forget the weight gradients</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>probs_clean <span class="op">=</span> F.softmax(logits.detach(), dim<span class="op">=</span><span class="dv">1</span>)[<span class="dv">0</span>]   <span class="co"># (1000,) probabilities</span></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>p_clean <span class="op">=</span> probs_clean[y_clean].item()</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;clean photo: </span><span class="sc">{</span>categories[y_clean.item()]<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span><span class="dv">100</span> <span class="op">*</span> p_clean<span class="sc">:.1f}</span><span class="ss">%)&quot;</span>)</span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>fgsm <span class="op">=</span> []                                            <span class="co"># one row per eps: (eps, class, probability, photo)</span></span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> torch.no_grad():</span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> eps <span class="kw">in</span> EPS:</span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>        <span class="co"># </span><span class="al">TODO</span><span class="co">: move every pixel by eps in the direction of the gradient: which function keeps only +1 or -1?</span></span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>        x_adv <span class="op">=</span> (x <span class="op">+</span> ___ <span class="op">*</span> x.grad.___()).clamp(<span class="dv">0</span>, <span class="dv">1</span>)    <span class="co"># every pixel moves by +eps or -eps</span></span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>        probs <span class="op">=</span> F.softmax(net(x_adv), dim<span class="op">=</span><span class="dv">1</span>)[<span class="dv">0</span>]      <span class="co"># (1000,) probabilities for the changed photo</span></span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>        top1, conf <span class="op">=</span> probs.argmax().item(), probs.<span class="bu">max</span>().item()</span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>        fgsm.append((eps, top1, conf, x_adv))</span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;ε = </span><span class="sc">{</span>eps<span class="sc">:&lt;6}</span><span class="ss"> top-1: </span><span class="sc">{</span>categories[top1]<span class="sc">:22s}</span><span class="ss"> </span><span class="sc">{</span><span class="dv">100</span> <span class="op">*</span> conf<span class="sc">:5.1f}</span><span class="ss">%&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 41%">
@@ -3194,7 +3260,7 @@ Figure 6: FGSM in one picture.
 </tr>
 </tbody>
 </table>
-<p><strong>Hints ✏ (two blanks).</strong> The slide formula is <code>x_adv = clip(x + ε · sign(∇ₓ loss), 0, 1)</code>. First blank: the <strong>step size</strong>: which variable does the <code>for</code> line give you? Second: the operation of the formula that keeps only the direction of the gradient (it is also a tensor method name). <strong>Expect:</strong> <code>clean photo: espresso (93.4%)</code>, then one line per <code>ε</code> from 0.001 to 0.1: watch at which <code>ε</code> the class changes. The ✅ cell draws clean, noise and adversarial photos and prints the REPORT (smallest <code>ε</code> that changed the class, new class). Compare the three photos: can you see the change? (Lab 2, question Q2 asks whose weakness this is.) <strong>If you see:</strong> <code>AttributeError: &#39;Tensor&#39; object has no attribute &#39;___&#39;</code> (method blank), <code>TypeError ... &#39;str&#39; and &#39;Tensor&#39;</code> (the <code>eps</code> blank), <code>IndexError: list index out of range</code> in the ✅ cell (the loop failed before filling <code>fgsm</code>: fix TODO 2 first). The ★ cell repeats Grad-CAM on the cat and the astronaut.</p>
+<p><strong>Hints ✏ (two blanks).</strong> The slide formula is <code>x_adv = clip(x + ε · sign(∇ₓ loss), 0, 1)</code>. First blank: the <strong>step size</strong>: which variable does the <code>for</code> line give you? Second: the operation of the formula that keeps only the direction of the gradient (it is also a tensor method name). <strong>Expect:</strong> <code>clean photo: espresso (93.4%)</code>, then one line per <code>ε</code> from 0.001 to 0.1: watch at which <code>ε</code> the class changes. The ✅ cell draws clean, noise and adversarial photos and prints a ★ line (smallest <code>ε</code> that changed the class, new class; a ★ line, not a REPORT line). Compare the three photos: can you see the change? (The ★ question Q2 under the cell asks whose weakness this is.) <strong>If you see:</strong> <code>AttributeError: &#39;Tensor&#39; object has no attribute &#39;___&#39;</code> (method blank), <code>TypeError ... &#39;str&#39; and &#39;Tensor&#39;</code> (the <code>eps</code> blank), <code>IndexError: list index out of range</code> in the ✅ cell (the loop failed before filling <code>fgsm</code>: fix ★ Optional B first). The last ★ cell of Lab 2 repeats Grad-CAM on the cat and the astronaut: it needs Optional A and, if you skipped A, it only tells you to do A first.</p>
 </section>
 </section>
 <section id="lab-3-transfer-learning" class="level1" data-number="7">
@@ -3213,11 +3279,11 @@ Figure 7: The two recipes: the backbone is the same pretrained ResNet18; only w
 <section id="l31-the-5000-photos-and-the-number-to-beat-s2l31" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="l31-the-5000-photos-and-the-number-to-beat-s2l31"><span class="header-section-number">7.1</span> L3·1 · the 5,000 photos and the number to beat (<code>S2·L3·1</code>)</h2>
 <p><strong>What it does.</strong> Picks 5,000 training photos (500 per class) and 2,000 validation photos, defines <code>prep</code>, and trains the small warm-up ConvNet from scratch on the same photos: <strong>the number to beat</strong>. <strong>In:</strong> CIFAR-10 from <code>S2·0</code>. <strong>Out:</strong> tensors on the GPU, <code>prep</code>, one accuracy.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># S2·L3·1 (extract)</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> prep(x):</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;A batch of 32 × 32 photos in [0, 1] -&gt; IMG × IMG (224), normalized like ImageNet.&quot;&quot;&quot;</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> F.interpolate(x, size<span class="op">=</span>(IMG, IMG), mode<span class="op">=</span><span class="st">&quot;bilinear&quot;</span>, align_corners<span class="op">=</span><span class="va">False</span>)   <span class="co"># (N, 3, 224, 224)</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> imagenet_norm(x)                     <span class="co"># the normalization ResNet18 was trained with</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># S2·L3·1 (extract)</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> prep(x):</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;A batch of 32 × 32 photos in [0, 1] -&gt; IMG × IMG (224), normalized like ImageNet.&quot;&quot;&quot;</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> F.interpolate(x, size<span class="op">=</span>(IMG, IMG), mode<span class="op">=</span><span class="st">&quot;bilinear&quot;</span>, align_corners<span class="op">=</span><span class="va">False</span>)   <span class="co"># (N, 3, 224, 224)</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> imagenet_norm(x)                     <span class="co"># the normalization ResNet18 was trained with</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The baseline is trained with the helper <code>fit(scratch, ...)</code> of <code>S2·0</code>. <code>prep(x)</code> turns a batch <code>(N, 3, 32, 32)</code> into <code>(N, 3, 224, 224)</code> (resize, then ImageNet normalization), <strong>per batch, on the fly</strong>. The GPU keeps only the small 32 × 32 photos. The rest of the cell is plumbing: <code>stratified</code> picks the same number of photos from each class; <code>SmallConvNet</code> is the warm-up network written again, so that this lab works without the warm-up. <strong>Expect:</strong> <code>train (5000, 3, 32, 32) · val (2000, 3, 32, 32)</code>, <code>prep: (2, 3, 32, 32) -&gt; (2, 3, 224, 224)</code>, ten epoch lines and a ✅ line. The baseline is about <strong>49%</strong> (it takes about a second). Remember it.</p>
 </section>
 <section id="l32-the-training-loop-for-transfer-learning-s2l32" class="level2" data-number="7.2">
@@ -3233,33 +3299,33 @@ Figure 8: One step of <code>train_tl</code>, for a batch of 64 photos.
 </figcaption>
 </figure>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># S2·L3·2 (extract)</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> amp():</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Mixed precision (float16) on the GPU; nothing on a CPU.&quot;&quot;&quot;</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> device <span class="op">==</span> <span class="st">&quot;cuda&quot;</span>:</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> torch.autocast(device_type<span class="op">=</span><span class="st">&quot;cuda&quot;</span>, dtype<span class="op">=</span>torch.float16)</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ...</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    scaler <span class="op">=</span> torch.amp.GradScaler(<span class="st">&quot;cuda&quot;</span>) <span class="cf">if</span> device <span class="op">==</span> <span class="st">&quot;cuda&quot;</span> <span class="cf">else</span> <span class="va">None</span>    <span class="co"># float16 needs a loss scaler</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    loss_fn <span class="op">=</span> nn.CrossEntropyLoss()</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    n, t0 <span class="op">=</span> <span class="bu">len</span>(X3_train), time.time()</span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(epochs):</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># BatchNorm: train mode updates its running statistics, eval mode keeps the ImageNet ones</span></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>        model.<span class="bu">eval</span>() <span class="cf">if</span> freeze_bn <span class="cf">else</span> model.train()</span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>        perm <span class="op">=</span> torch.randperm(n, device<span class="op">=</span>device)          <span class="co"># a new random order every epoch</span></span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>        total <span class="op">=</span> torch.zeros((), device<span class="op">=</span>device)           <span class="co"># sum of the losses of this epoch</span></span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n, BATCH3):</span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>            idx <span class="op">=</span> perm[i:i <span class="op">+</span> BATCH3]                     <span class="co"># the indices of one mini-batch of 64 photos</span></span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">with</span> amp():</span>
-<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>                loss <span class="op">=</span> loss_fn(model(prep(X3_train[idx])), y3_train[idx])     <span class="co"># 1. forward, 2. loss</span></span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>            optimizer.zero_grad(set_to_none<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> scaler <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:                       <span class="co"># on the GPU: the scaler protects float16 gradients</span></span>
-<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>                scaler.scale(loss).backward()                                  <span class="co"># 3. backward</span></span>
-<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>                scaler.step(optimizer)                                         <span class="co"># 4. update</span></span>
-<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>                scaler.update()</span>
-<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:                                        <span class="co"># on a CPU: the usual two lines</span></span>
-<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>                loss.backward()                                                <span class="co"># 3. backward</span></span>
-<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>                optimizer.step()                                               <span class="co"># 4. update</span></span>
-<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>            total <span class="op">+=</span> loss.detach().<span class="bu">float</span>() <span class="op">*</span> <span class="bu">len</span>(idx)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># S2·L3·2 (extract)</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> amp():</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Mixed precision (float16) on the GPU; nothing on a CPU.&quot;&quot;&quot;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> device <span class="op">==</span> <span class="st">&quot;cuda&quot;</span>:</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> torch.autocast(device_type<span class="op">=</span><span class="st">&quot;cuda&quot;</span>, dtype<span class="op">=</span>torch.float16)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ...</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    scaler <span class="op">=</span> torch.amp.GradScaler(<span class="st">&quot;cuda&quot;</span>) <span class="cf">if</span> device <span class="op">==</span> <span class="st">&quot;cuda&quot;</span> <span class="cf">else</span> <span class="va">None</span>    <span class="co"># float16 needs a loss scaler</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    loss_fn <span class="op">=</span> nn.CrossEntropyLoss()</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    n, t0 <span class="op">=</span> <span class="bu">len</span>(X3_train), time.time()</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(epochs):</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>        <span class="co"># BatchNorm: train mode updates its running statistics, eval mode keeps the ImageNet ones</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>        model.<span class="bu">eval</span>() <span class="cf">if</span> freeze_bn <span class="cf">else</span> model.train()</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>        perm <span class="op">=</span> torch.randperm(n, device<span class="op">=</span>device)          <span class="co"># a new random order every epoch</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>        total <span class="op">=</span> torch.zeros((), device<span class="op">=</span>device)           <span class="co"># sum of the losses of this epoch</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n, BATCH3):</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>            idx <span class="op">=</span> perm[i:i <span class="op">+</span> BATCH3]                     <span class="co"># the indices of one mini-batch of 64 photos</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">with</span> amp():</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>                loss <span class="op">=</span> loss_fn(model(prep(X3_train[idx])), y3_train[idx])     <span class="co"># 1. forward, 2. loss</span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>            optimizer.zero_grad(set_to_none<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> scaler <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:                       <span class="co"># on the GPU: the scaler protects float16 gradients</span></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>                scaler.scale(loss).backward()                                  <span class="co"># 3. backward</span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>                scaler.step(optimizer)                                         <span class="co"># 4. update</span></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>                scaler.update()</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:                                        <span class="co"># on a CPU: the usual two lines</span></span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>                loss.backward()                                                <span class="co"># 3. backward</span></span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>                optimizer.step()                                               <span class="co"># 4. update</span></span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>            total <span class="op">+=</span> loss.detach().<span class="bu">float</span>() <span class="op">*</span> <span class="bu">len</span>(idx)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 41%">
@@ -3295,17 +3361,17 @@ Figure 8: One step of <code>train_tl</code>, for a batch of 64 photos.
 <section id="todo-1-recipe-1-freeze-the-backbone-and-train-a-new-head-s2l3todo1" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="todo-1-recipe-1-freeze-the-backbone-and-train-a-new-head-s2l3todo1"><span class="header-section-number">7.3</span> TODO 1 · Recipe 1, freeze the backbone and train a new head (<code>S2·L3·TODO1</code>)</h2>
 <p><strong>What it does.</strong> Loads the pretrained ResNet18, switches off the gradient of all its parameters, replaces its last layer by a new one for the CIFAR-10 classes, and prints how many parameters can be trained. <strong>Out:</strong> <code>model</code>, ready to train.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ✏️ S2·L3·TODO1</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>set_seed(<span class="dv">0</span>)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> torchvision.models.resnet18(weights<span class="op">=</span>ResNet18_Weights.DEFAULT)   <span class="co"># pretrained on ImageNet</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> p <span class="kw">in</span> model.parameters():</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: freezing means &quot;no gradient for this parameter&quot;: True or False?</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    p.requires_grad <span class="op">=</span> ___                                         <span class="co"># freeze: no gradient, no update</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: the new head takes the same number of features as the old one, and gives one score per CIFAR-10 class</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>model.fc <span class="op">=</span> nn.Linear(model.fc.___, ___)                    <span class="co"># new head: 512 → 10 classes</span></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> model.to(device)</span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>n_all <span class="op">=</span> <span class="bu">sum</span>(p.numel() <span class="cf">for</span> p <span class="kw">in</span> model.parameters())                    <span class="co"># every parameter, frozen or not</span></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;trainable parameters: </span><span class="sc">{</span>count_params(model)<span class="sc">:,}</span><span class="ss"> of </span><span class="sc">{</span>n_all<span class="sc">:,}</span><span class="ss">&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ✏️ S2·L3·TODO1</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>set_seed(<span class="dv">0</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> torchvision.models.resnet18(weights<span class="op">=</span>ResNet18_Weights.DEFAULT)   <span class="co"># pretrained on ImageNet</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> p <span class="kw">in</span> model.parameters():</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: freezing means &quot;no gradient for this parameter&quot;: True or False?</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    p.requires_grad <span class="op">=</span> ___                                         <span class="co"># freeze: no gradient, no update</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: the new head takes the same number of features as the old one, and gives one score per CIFAR-10 class</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>model.fc <span class="op">=</span> nn.Linear(model.fc.___, ___)                    <span class="co"># new head: 512 → 10 classes</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> model.to(device)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>n_all <span class="op">=</span> <span class="bu">sum</span>(p.numel() <span class="cf">for</span> p <span class="kw">in</span> model.parameters())                    <span class="co"># every parameter, frozen or not</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;trainable parameters: </span><span class="sc">{</span>count_params(model)<span class="sc">:,}</span><span class="ss"> of </span><span class="sc">{</span>n_all<span class="sc">:,}</span><span class="ss">&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 41%">
@@ -3337,48 +3403,48 @@ Figure 8: One step of <code>train_tl</code>, for a batch of 64 photos.
 </tbody>
 </table>
 <p><strong>Hints ✏ (three blanks).</strong> Freeze means no gradient and no update: which Boolean value? The print of <code>resnet.fc</code> in Lab 1 showed the two sizes of a <code>Linear</code> layer with their attribute names: you need the one for the <strong>inputs</strong>. And how many classes does CIFAR-10 have? The ✅ cell checks that only the head is trainable. Then the training cell:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># S2·L3·TODO1·train (extract)</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>trainable <span class="op">=</span> []                                   <span class="co"># only the parameters that learn (the new head)</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> p <span class="kw">in</span> model.parameters():</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> p.requires_grad:</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>        trainable.append(p)</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> torch.optim.Adam(trainable, lr<span class="op">=</span><span class="fl">1e-3</span>)</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co"># freeze_bn=True: the frozen backbone keeps its ImageNet BatchNorm statistics,</span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co"># so the features the head learns from do not move</span></span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>fe <span class="op">=</span> train_tl(model, optimizer, EPOCHS3, <span class="st">&quot;feature extraction (head only)&quot;</span>, freeze_bn<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>fe_state <span class="op">=</span> {}                                    <span class="co"># a copy of every weight now, to restart from it in </span><span class="al">TODO</span><span class="co"> 3</span></span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k, v <span class="kw">in</span> model.state_dict().items():</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    fe_state[k] <span class="op">=</span> v.detach().clone()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># S2·L3·TODO1·train (extract)</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>trainable <span class="op">=</span> []                                   <span class="co"># only the parameters that learn (the new head)</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> p <span class="kw">in</span> model.parameters():</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> p.requires_grad:</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>        trainable.append(p)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> torch.optim.Adam(trainable, lr<span class="op">=</span><span class="fl">1e-3</span>)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co"># freeze_bn=True: the frozen backbone keeps its ImageNet BatchNorm statistics,</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="co"># so the features the head learns from do not move</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>fe <span class="op">=</span> train_tl(model, optimizer, EPOCHS3, <span class="st">&quot;feature extraction (head only)&quot;</span>, freeze_bn<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>fe_state <span class="op">=</span> {}                                    <span class="co"># a copy of every weight now, to restart from it in </span><span class="al">TODO</span><span class="co"> 3</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k, v <span class="kw">in</span> model.state_dict().items():</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    fe_state[k] <span class="op">=</span> v.detach().clone()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>state_dict()</code> is a dictionary with all parameters (and BatchNorm statistics) of the model: its “state”. The loop saves a <strong>copy</strong> in <code>fe_state</code>, the starting point of TODO 3. <strong>Predict first.</strong> <strong>Expect:</strong> about 6 s for two epochs on a T4, a ✅ line, and <code>REPORT: feature extraction accuracy in % · ...</code>. The ✅ cell tells you if your number is in the normal range.</p>
 </section>
 <section id="todo-2-recipe-2-unfreeze-everything-with-a-smaller-learning-rate-s2l3todo2" class="level2" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="todo-2-recipe-2-unfreeze-everything-with-a-smaller-learning-rate-s2l3todo2"><span class="header-section-number">7.4</span> TODO 2 · Recipe 2, unfreeze everything with a smaller learning rate (<code>S2·L3·TODO2</code>)</h2>
 <p><strong>What it does.</strong> Continues from the model of Lab 3a: now every parameter learns, with a learning rate 10 times smaller, because the pretrained weights are already good and we only adjust them.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ✏️ S2·L3·TODO2</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> p <span class="kw">in</span> model.parameters():</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: unfreeze: every parameter gets a gradient again</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    p.requires_grad <span class="op">=</span> ___                                       <span class="co"># unfreeze every layer</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: the head used lr = 1e-3; fine-tuning uses a learning rate 10 times smaller</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> torch.optim.Adam(model.parameters(), lr<span class="op">=</span>___)        <span class="co"># 10 times smaller than for the head</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;trainable parameters: </span><span class="sc">{</span>count_params(model)<span class="sc">:,}</span><span class="ss">&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ✏️ S2·L3·TODO2</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> p <span class="kw">in</span> model.parameters():</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: unfreeze: every parameter gets a gradient again</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    p.requires_grad <span class="op">=</span> ___                                       <span class="co"># unfreeze every layer</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: the head used lr = 1e-3; fine-tuning uses a learning rate 10 times smaller</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> torch.optim.Adam(model.parameters(), lr<span class="op">=</span>___)        <span class="co"># 10 times smaller than for the head</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;trainable parameters: </span><span class="sc">{</span>count_params(model)<span class="sc">:,}</span><span class="ss">&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Hints ✏ (two blanks).</strong> The first is the opposite of TODO 1. The second: take the learning rate of the Adam in the previous training cell, divide by 10, and write it like <code>1e-3</code> is written. The ✅ cell checks the trainable count and the learning rate. Then:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># S2·L3·TODO2·train (extract)</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>ft <span class="op">=</span> train_tl(model, optimizer, EPOCHS3, <span class="st">&quot;fine-tuning (all layers, lr 1e-4)&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># S2·L3·TODO2·train (extract)</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>ft <span class="op">=</span> train_tl(model, optimizer, EPOCHS3, <span class="st">&quot;fine-tuning (all layers, lr 1e-4)&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Predict first</strong> how it compares with 3a. <strong>Expect:</strong> about 16 s for two epochs; the ✅ cell says if your number is in the normal range; the REPORT prints both accuracies.</p>
 </section>
 <section id="todo-3-a-learning-rate-100-times-too-large-s2l3todo3" class="level2" data-number="7.5">
 <h2 data-number="7.5" class="anchored" data-anchor-id="todo-3-a-learning-rate-100-times-too-large-s2l3todo3"><span class="header-section-number">7.5</span> TODO 3 · 🔬 a learning rate 100 times too large (<code>S2·L3·TODO3</code>)</h2>
 <p><strong>What it does.</strong> Builds a fresh ResNet18, loads into it the state <code>fe_state</code> (the end of Lab 3a), and fine-tunes everything for one epoch with a huge learning rate.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ✏️ S2·L3·TODO3</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>model_bad <span class="op">=</span> torchvision.models.resnet18()                 <span class="co"># same architecture; the weights come from fe_state</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>model_bad.fc <span class="op">=</span> nn.Linear(<span class="dv">512</span>, <span class="dv">10</span>)</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>model_bad.load_state_dict(fe_state)                       <span class="co"># restart from the end of Lab 3a</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>model_bad <span class="op">=</span> model_bad.to(device)                          <span class="co"># every parameter is trainable</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: 100 times larger than the 1e-4 of </span><span class="al">TODO</span><span class="co"> 2</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>optimizer_bad <span class="op">=</span> torch.optim.Adam(model_bad.parameters(), lr<span class="op">=</span>___)    <span class="co"># 100 times larger than in </span><span class="al">TODO</span><span class="co"> 2</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>set_seed(<span class="dv">0</span>)</span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>bad <span class="op">=</span> train_tl(model_bad, optimizer_bad, <span class="dv">1</span>, <span class="st">&quot;fine-tuning, lr 1e-2 (too large)&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ✏️ S2·L3·TODO3</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>model_bad <span class="op">=</span> torchvision.models.resnet18()                 <span class="co"># same architecture; the weights come from fe_state</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>model_bad.fc <span class="op">=</span> nn.Linear(<span class="dv">512</span>, <span class="dv">10</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>model_bad.load_state_dict(fe_state)                       <span class="co"># restart from the end of Lab 3a</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>model_bad <span class="op">=</span> model_bad.to(device)                          <span class="co"># every parameter is trainable</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: 100 times larger than the 1e-4 of </span><span class="al">TODO</span><span class="co"> 2</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>optimizer_bad <span class="op">=</span> torch.optim.Adam(model_bad.parameters(), lr<span class="op">=</span>___)    <span class="co"># 100 times larger than in </span><span class="al">TODO</span><span class="co"> 2</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>set_seed(<span class="dv">0</span>)</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>bad <span class="op">=</span> train_tl(model_bad, optimizer_bad, <span class="dv">1</span>, <span class="st">&quot;fine-tuning, lr 1e-2 (too large)&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>resnet18()</code> is the architecture only; <code>load_state_dict(fe_state)</code> copies the saved weights into it. <strong>Hint ✏:</strong> take the value of TODO 2 and multiply by 100. <strong>Expect:</strong> the accuracy <strong>falls</strong> far below 3a (the big steps destroy the pretrained features); the ✅ cell confirms it. The ★ cell unfreezes only <code>layer4</code> and the head and ends with a table of all models.</p>
 <p><strong>If you see (Lab 3):</strong> <code>RuntimeError: requires_grad must be a bool</code> (a blank is still <code>___</code>). <strong><code>RuntimeError: Input type (torch.cuda.HalfTensor) and weight type (torch.FloatTensor) should be the same</code></strong>: the model is still on the <strong>CPU</strong> while the data is on the GPU. The cell with <code>model = model.to(device)</code> failed earlier (usually because of a blank), so the model was never moved: fix the blanks, run TODO 1 again <strong>completely</strong>, then the training cell. <code>❌ ... trainable must be 5,130</code> means the head or the freeze is wrong. On a CPU everything works but takes minutes.</p>
 </section>
@@ -3399,44 +3465,44 @@ Figure 9: How a transpose convolution works (another example than yours).
 </figcaption>
 </figure>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ✏️ S2·L4·TODO1</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: (7 − 1)·S + M must be 14, with M = S</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>up <span class="op">=</span> nn.ConvTranspose2d(<span class="dv">16</span>, <span class="dv">8</span>, kernel_size<span class="op">=</span>___, stride<span class="op">=</span>___)</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> torch.randn(<span class="dv">1</span>, <span class="dv">16</span>, <span class="dv">7</span>, <span class="dv">7</span>)                      <span class="co"># 16 random maps of 7 × 7 (a batch of one)</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>up_out <span class="op">=</span> up(z)                                    <span class="co"># should be (1, 8, 14, 14)</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">tuple</span>(z.shape), <span class="st">&quot;-&gt;&quot;</span>, <span class="bu">tuple</span>(up_out.shape), <span class="st">&quot;·&quot;</span>, count_params(up), <span class="st">&quot;parameters&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ✏️ S2·L4·TODO1</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: (7 − 1)·S + M must be 14, with M = S</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>up <span class="op">=</span> nn.ConvTranspose2d(<span class="dv">16</span>, <span class="dv">8</span>, kernel_size<span class="op">=</span>___, stride<span class="op">=</span>___)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> torch.randn(<span class="dv">1</span>, <span class="dv">16</span>, <span class="dv">7</span>, <span class="dv">7</span>)                      <span class="co"># 16 random maps of 7 × 7 (a batch of one)</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>up_out <span class="op">=</span> up(z)                                    <span class="co"># should be (1, 8, 14, 14)</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">tuple</span>(z.shape), <span class="st">&quot;-&gt;&quot;</span>, <span class="bu">tuple</span>(up_out.shape), <span class="st">&quot;·&quot;</span>, count_params(up), <span class="st">&quot;parameters&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Hints ✏ (two blanks).</strong> Without padding the output side is <code>(J - 1) · S + M</code>; you want <code>J = 7</code> to double. The markdown says <code>M = S</code>: try <code>S = 1, 2, 3</code> on paper and keep the one that gives the target. The ✅ cell checks your layer, then runs a tiny untrained encoder-decoder; this loop prints the shape after each layer:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># S2·L4·TODO1·check (extract)</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> torch.randn(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">32</span>, <span class="dv">32</span>)                    <span class="co"># one random &quot;photo&quot; of 32 × 32</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;input&quot;</span>, <span class="bu">tuple</span>(h.shape))</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> layer <span class="kw">in</span> enc_dec:                            <span class="co"># run the layers one by one to print every shape</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    h <span class="op">=</span> layer(h)</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> <span class="bu">isinstance</span>(layer, nn.ReLU):           <span class="co"># a ReLU does not change the shape: skip its line</span></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="sc">{</span>layer<span class="sc">.</span><span class="va">__class__</span><span class="sc">.</span><span class="va">__name__</span><span class="sc">:16s}</span><span class="ss"> -&gt; </span><span class="sc">{</span><span class="bu">tuple</span>(h.shape)<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># S2·L4·TODO1·check (extract)</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> torch.randn(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">32</span>, <span class="dv">32</span>)                    <span class="co"># one random &quot;photo&quot; of 32 × 32</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;input&quot;</span>, <span class="bu">tuple</span>(h.shape))</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> layer <span class="kw">in</span> enc_dec:                            <span class="co"># run the layers one by one to print every shape</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    h <span class="op">=</span> layer(h)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> <span class="bu">isinstance</span>(layer, nn.ReLU):           <span class="co"># a ReLU does not change the shape: skip its line</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="sc">{</span>layer<span class="sc">.</span><span class="va">__class__</span><span class="sc">.</span><span class="va">__name__</span><span class="sc">:16s}</span><span class="ss"> -&gt; </span><span class="sc">{</span><span class="bu">tuple</span>(h.shape)<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>isinstance(layer, nn.ReLU)</code> skips ReLU layers, which never change a shape. <strong>Expect:</strong> a chain of shapes that goes down and up again, ending in <code>(1, 21, 32, 32)</code>: 21 scores for each of the 32 × 32 pixels, <code>(1, K, H, W)</code>. <strong>If you see:</strong> <code>❌ ... (J - 1)·S + M = 14</code> (your output is not 14 × 14: recompute the formula) or a <code>TypeError</code> about <code>ConvTranspose2d</code> (a blank is still <code>___</code>).</p>
 </section>
 <section id="l42-a-pretrained-segmentation-network-s2l42" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="l42-a-pretrained-segmentation-network-s2l42"><span class="header-section-number">8.2</span> L4·2 · a pretrained segmentation network (<code>S2·L4·2</code>)</h2>
 <p><strong>What it does.</strong> Loads <code>lraspp_mobilenet_v3_large</code> (a small pretrained segmentation network, 21 classes), runs it on the cat and the astronaut and draws a colour mask. <strong>In:</strong> a photo <code>(1, 3, H, W)</code> at its own size. <strong>Out:</strong> scores <code>(1, 21, H, W)</code>, then a mask <code>(H, W)</code> with one class number per pixel.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># S2·L4·2 (extract)</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>SEG_OK <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> torchvision.models.segmentation <span class="im">import</span> lraspp_mobilenet_v3_large, LRASPP_MobileNet_V3_Large_Weights</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    seg_weights <span class="op">=</span> LRASPP_MobileNet_V3_Large_Weights.DEFAULT</span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>    seg_model <span class="op">=</span> lraspp_mobilenet_v3_large(weights<span class="op">=</span>seg_weights).<span class="bu">eval</span>().to(device)</span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    VOC <span class="op">=</span> seg_weights.meta[<span class="st">&quot;categories&quot;</span>]                  <span class="co"># 21 classes, VOC[0] = background</span></span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    SEG_OK <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="co"># ...</span></span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> SEG_OK:</span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    masks <span class="op">=</span> {}</span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> torch.no_grad():</span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> name <span class="kw">in</span> (<span class="st">&quot;cat&quot;</span>, <span class="st">&quot;astronaut&quot;</span>):</span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>            out <span class="op">=</span> seg_model(imagenet_norm(PHOTOS_FULL[name]))[<span class="st">&quot;out&quot;</span>]      <span class="co"># (1, 21, H, W) scores</span></span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>            masks[name] <span class="op">=</span> out.argmax(dim<span class="op">=</span><span class="dv">1</span>)[<span class="dv">0</span>].cpu()                     <span class="co"># (H, W) class of each pixel</span></span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="co"># ...</span></span>
-<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>    cat_pct <span class="op">=</span> <span class="dv">100</span> <span class="op">*</span> is_cat.mean().item()                     <span class="co"># the share of such pixels, in %</span></span>
-<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a><span class="co"># ...</span></span>
-<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>    report_line(<span class="st">&quot;Lab 4&quot;</span>, <span class="ss">f&quot;pixels labelled cat in % · </span><span class="sc">{</span>cat_pct<span class="sc">:.1f}</span><span class="ss">&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># S2·L4·2 (extract)</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>SEG_OK <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> torchvision.models.segmentation <span class="im">import</span> lraspp_mobilenet_v3_large, LRASPP_MobileNet_V3_Large_Weights</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    seg_weights <span class="op">=</span> LRASPP_MobileNet_V3_Large_Weights.DEFAULT</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    seg_model <span class="op">=</span> lraspp_mobilenet_v3_large(weights<span class="op">=</span>seg_weights).<span class="bu">eval</span>().to(device)</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    VOC <span class="op">=</span> seg_weights.meta[<span class="st">&quot;categories&quot;</span>]                  <span class="co"># 21 classes, VOC[0] = background</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>    SEG_OK <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="co"># ...</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> SEG_OK:</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    masks <span class="op">=</span> {}</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> torch.no_grad():</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> name <span class="kw">in</span> (<span class="st">&quot;cat&quot;</span>, <span class="st">&quot;astronaut&quot;</span>):</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>            out <span class="op">=</span> seg_model(imagenet_norm(PHOTOS_FULL[name]))[<span class="st">&quot;out&quot;</span>]      <span class="co"># (1, 21, H, W) scores</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>            masks[name] <span class="op">=</span> out.argmax(dim<span class="op">=</span><span class="dv">1</span>)[<span class="dv">0</span>].cpu()                     <span class="co"># (H, W) class of each pixel</span></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a><span class="co"># ...</span></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>    cat_pct <span class="op">=</span> <span class="dv">100</span> <span class="op">*</span> is_cat.mean().item()                     <span class="co"># the share of such pixels, in %</span></span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a><span class="co"># ...</span></span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>    report_line(<span class="st">&quot;Lab 4&quot;</span>, <span class="ss">f&quot;pixels labelled cat in % · </span><span class="sc">{</span>cat_pct<span class="sc">:.1f}</span><span class="ss">&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><code>try ... except</code> catches a failed download and prints a message instead of stopping (not an error). <code>seg_model(...)[&quot;out&quot;]</code>: this model returns a dictionary; the scores are under <code>&quot;out&quot;</code>. <code>out.argmax(dim=1)[0]</code> picks, for every pixel, the class with the largest score. <code>(mask == VOC.index(&quot;cat&quot;)).float().mean()</code> is the fraction of “cat” pixels. <strong>Expect:</strong> two photos with colour masks; about three quarters of the cat photo is “cat” (the reference run is a little above 75%); the REPORT prints it. <strong>If you see</strong> <code>Could not load the segmentation network (no internet?)</code>: skip the cell and look at the Lab 4 slide. The last cell, <code>S2·END</code>, prints all your REPORT lines and a table of all models.</p>
 </section>
 </section>
@@ -3487,30 +3553,34 @@ Figure 9: How a transpose convolution works (another example than yours).
 <td style="text-align: left;">Force values into a range.</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;"><code>a // b</code>, <code>x[a:]</code></td>
+<td style="text-align: left;">Division that drops the remainder (<code>7 // 2</code> is 3); a slice from position <code>a</code> to the end (the first position is 0).</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;"><code>requires_grad</code></td>
 <td style="text-align: left;">Switch on a parameter or tensor: compute its gradient or not.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><code>state_dict()</code>, <code>load_state_dict()</code></td>
 <td style="text-align: left;">The dictionary of all parameters of a model, and loading it back.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><code>register_forward_hook</code>, <code>register_hook</code></td>
 <td style="text-align: left;">Call your function when a layer runs (sees input and output); when a tensor’s gradient is computed.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><code>torch.autocast</code>, <code>GradScaler</code></td>
 <td style="text-align: left;">Float16 maths where safe (faster); scales the loss so tiny float16 gradients survive.</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Grad-CAM, FGSM</td>
+<tr class="even">
+<td style="text-align: left;">★ Grad-CAM, ★ FGSM (optional)</td>
 <td style="text-align: left;">Heat map of where a CNN looked; attack that moves each pixel by <code>eps</code> along the gradient direction.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">backbone, head; feature extraction, fine-tuning</td>
 <td style="text-align: left;">The pretrained body and the last layers; train only a new head, or train everything with a small learning rate.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">segmentation, REPORT line</td>
 <td style="text-align: left;">A class for every pixel (<code>K × H × W</code> scores); the numbers you say and type into Moodle.</td>
 </tr>
