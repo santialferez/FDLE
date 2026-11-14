@@ -5,7 +5,7 @@ Student material for the second part of the course (convolutional networks and l
 | Session | Notebook (Colab) | Slides | Files |
 |---|---|---|---|
 | S1 · Convolutional networks I (6 Nov 2026) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/santialferez/FDLE/blob/main/S1_CNN/S1_CNN_STUDENT.ipynb) | [S1 slides](https://santialferez.github.io/FDLE/S1_CNN/S1_CNN.html) | [S1_CNN/](S1_CNN/) |
-| S2 · Convolutional networks II (13 Nov 2026) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/santialferez/FDLE/blob/main/S2_CNN/S2_CNN_STUDENT.ipynb) | [S2 slides](https://santialferez.github.io/FDLE/S2_CNN/S2_CNN.html) · [code explained step by step](https://santialferez.github.io/FDLE/S2_CNN/S2_CNN_code_companion.html) | [S2_CNN/](S2_CNN/) |
+| S2 · Convolutional networks II (20 Nov 2026) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/santialferez/FDLE/blob/main/S2_CNN/S2_CNN_STUDENT.ipynb) | [S2 slides](https://santialferez.github.io/FDLE/S2_CNN/S2_CNN.html) · [code explained step by step](https://santialferez.github.io/FDLE/S2_CNN/S2_CNN_code_companion.html) | [S2_CNN/](S2_CNN/) |
 
 ## How to use the notebooks
 
