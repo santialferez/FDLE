@@ -1653,13 +1653,13 @@ Santiago Alférez
 <div class="turn-card">
 <ul>
 <li><strong>▶ L2·1</strong> · run: the 64 first filters; feature maps of layer 1 and layer 4</li>
-<li><strong>✏️ TODO 1</strong> · layer4: how many maps, what size? How many pixels does one cell cover?</li>
+<li><strong>✏️ TODO 1</strong> · layer4: how many maps, what size? How many pixels per cell?</li>
 </ul>
-<p><strong>★ Fast pairs</strong> · Optional A: Grad-CAM on the coffee photo · Optional B: fool the network (FGSM)</p>
+<p><strong>★ Fast pairs</strong> · Try your own photo (or break ResNet18) · ★ A Grad-CAM · ★ B FGSM</p>
 </div>
 <div class="predict">
-<p><strong>Predict first</strong> (before ★ B): to change the class, how much must each pixel change?</p>
-<p>A · 50% · B · 10% · C · 1% or less</p>
+<p><strong>Predict first</strong> (before L2·1): in which maps can you still see the cat’s face by eye?</p>
+<p>A · layer1 (56×56) only · B · layer4 (7×7) only · C · both · D · neither</p>
 </div>
 </div><div class="column" style="width:40%;">
 <div class="cnn-widget" data-widget="timer" data-min="17" data-until="13:43">
@@ -1800,13 +1800,13 @@ Santiago Alférez
 <p><strong>Predict first</strong>: compared with feature extraction, fine-tuning gives</p>
 <p>A · lower · B · the same · C · about 5 points higher · D · 10 points higher or more</p>
 </div>
-<p><strong>✏️ TODO 3</strong> · experiment: the same with <code>lr=1e-2</code>, 100 times too large</p>
+<p><strong>✏️ TODO 3</strong> · predict, then break it: <code>lr=1e-2</code> (8 s), faster or crash?</p>
 </div><div class="column" style="width:40%;">
 <div class="cnn-widget" data-widget="timer" data-min="17" data-until="15:03">
 
 </div>
 <div class="report-card">
-<p>both accuracies: feature extraction · fine-tuning</p>
+<p>three accuracies: feature extraction · fine-tuning · lr 1e-2</p>
 </div>
 </div></div>
 <p><span class="nb-route">▶ Notebook S2 · Lab 3b · 17 min in pairs</span></p>
@@ -2000,7 +2000,7 @@ Santiago Alférez
 </ol>
 </div><div class="column" style="width:40%;">
 <div class="box blue">
-<p><strong>Next week</strong>: stochastic foundations</p>
+<p><strong>Next week</strong>: check Atenea for the updated schedule</p>
 </div>
 <div class="box amber">
 <p><strong>Materials</strong>: github.com/santialferez/FDLE<br>Bishop (2024) §9.5 and §10.2.8 to §10.5</p>
