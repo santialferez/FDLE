@@ -2397,7 +2397,7 @@ h1, h2, h3 { break-after: avoid; }
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>REPORT</strong></td>
-<td style="text-align: left;">Last line of each lab: the numbers you say aloud and type into Moodle, exactly as printed.</td>
+<td style="text-align: left;">Last line of each lab: the numbers you write down and share in class, exactly as printed.</td>
 </tr>
 </tbody>
 </table>
@@ -3088,7 +3088,7 @@ Figure 4: A plain block and a residual block, as in the <code>Block</code> clas
 <li><code>TypeError: slice indices must be integers or None ...</code> or <code>TypeError: unsupported operand type(s) for //: &#39;str&#39; and &#39;int&#39;</code>: a <code>___</code> is still in the cell.</li>
 <li><code>KeyError: &#39;layer4&#39;</code> or <code>NameError: name &#39;maps&#39; is not defined</code>: run <code>S2·0</code> and then L2·1 (the hooks fill <code>maps</code>).</li>
 </ul>
-<p><strong>Expect:</strong> the first print shows <code>layer4 output: (1, 512, 7, 7)</code>. After your blanks, <code>layer4: 512 maps of 7 × 7 cells · one cell = P × P pixels of the photo</code>, where <code>P</code> is the number you compute. That number is also the answer to the Moodle question of Lab 2, so work it out yourself and check that it makes sense: a map of 7 × 7 cells has to cover the whole photo. The ✅ cell checks the three numbers, saves them for the reference file (you can skip that part) and prints the line you report:</p>
+<p><strong>Expect:</strong> the first print shows <code>layer4 output: (1, 512, 7, 7)</code>. After your blanks, <code>layer4: 512 maps of 7 × 7 cells · one cell = P × P pixels of the photo</code>, where <code>P</code> is the number you compute. Work it out yourself and check that it makes sense: a map of 7 × 7 cells has to cover the whole photo. The ✅ cell checks the three numbers, saves them for the reference file (you can skip that part) and prints the line you report:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># S2·L2·TODO1·check (extract)</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>report_line(<span class="st">&quot;Lab 2&quot;</span>, <span class="ss">f&quot;layer4: </span><span class="sc">{</span>n_maps<span class="sc">}</span><span class="ss"> maps of </span><span class="sc">{</span>h<span class="sc">}</span><span class="ss"> × </span><span class="sc">{</span>w<span class="sc">}</span><span class="ss"> · one cell = </span><span class="sc">{</span>cell_px<span class="sc">}</span><span class="ss"> × </span><span class="sc">{</span>cell_px<span class="sc">}</span><span class="ss"> pixels&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>so the REPORT line has the form <code>REPORT: layer4: 512 maps of 7 × 7 · one cell = P × P pixels</code>, with the same <code>P</code>.</p>
@@ -3587,7 +3587,7 @@ Figure 9: How a transpose convolution works (another example than yours).
 </tr>
 <tr class="even">
 <td style="text-align: left;">segmentation, REPORT line</td>
-<td style="text-align: left;">A class for every pixel (<code>K × H × W</code> scores); the numbers you say and type into Moodle.</td>
+<td style="text-align: left;">A class for every pixel (<code>K × H × W</code> scores); the numbers you share in class.</td>
 </tr>
 </tbody>
 </table>
