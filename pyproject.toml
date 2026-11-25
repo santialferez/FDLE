@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fdle"
+version = "0.1.0"
+description = "Course helpers for Foundations of Deep Learning for Engineering"
+requires-python = ">=3.10"
+dependencies = ["torch>=2.3", "numpy", "matplotlib", "scikit-learn"]
+
+[tool.setuptools]
+packages = ["fdle"]
