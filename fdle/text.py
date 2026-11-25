@@ -24,6 +24,7 @@ class SimpleVocab:
         self.max_size = max_size
         self.min_freq = min_freq
         self.token_to_idx = {}
+        self._idx_to_token = ["<pad>", "<unk>"]
 
     def fit(self, texts):
         """Build the vocabulary from training texts and return it."""
@@ -31,6 +32,7 @@ class SimpleVocab:
         words = [word for word, count in counts.most_common(self.max_size - 2)
                  if count >= self.min_freq]
         self.token_to_idx = {word: idx for idx, word in enumerate(words, start=2)}
+        self._idx_to_token = ["<pad>", "<unk>", *words]
         return self
 
     def encode(self, text, max_len=150) -> list[int]:
@@ -40,6 +42,18 @@ class SimpleVocab:
         ids = [self.token_to_idx.get(token, self.unk_idx)
                for token in tokenize(text)[:max_len]]
         return ids + [self.pad_idx] * (max_len - len(ids))
+
+    def decode(self, ids, skip_special=True) -> str:
+        """Join decoded tokens with spaces, optionally keeping <pad> and <unk>."""
+        tokens = []
+        for value in ids:
+            idx = int(value)
+            if not 0 <= idx < len(self._idx_to_token):
+                idx = self.unk_idx
+            if skip_special and idx in (self.pad_idx, self.unk_idx):
+                continue
+            tokens.append(self._idx_to_token[idx])
+        return " ".join(tokens)
 
     def __len__(self):
         return len(self.token_to_idx) + 2

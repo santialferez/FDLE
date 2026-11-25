@@ -2,3 +2,5 @@
 *_prof.html
 *_answers.html
 .ipynb_checkpoints/
+__pycache__/
+*.egg-info/
