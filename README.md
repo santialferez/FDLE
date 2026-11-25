@@ -6,13 +6,22 @@ Student material for the second part of the course (convolutional networks and l
 |---|---|---|---|
 | S1 · Convolutional networks I (6 Nov 2026) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/santialferez/FDLE/blob/main/S1_CNN/S1_CNN_STUDENT.ipynb) | [S1 slides](https://santialferez.github.io/FDLE/S1_CNN/S1_CNN.html) | [S1_CNN/](S1_CNN/) |
 | S2 · Convolutional networks II (20 Nov 2026) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/santialferez/FDLE/blob/main/S2_CNN/S2_CNN_STUDENT.ipynb) | [S2 slides](https://santialferez.github.io/FDLE/S2_CNN/S2_CNN.html) · [code explained step by step](https://santialferez.github.io/FDLE/S2_CNN/S2_CNN_code_companion.html) | [S2_CNN/](S2_CNN/) |
+| S3 · Sampling, Cross-Validation & Intro to RNNs (27 Nov 2026) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/santialferez/FDLE/blob/main/S3_Sampling_RNN/S3_Sampling_RNN_STUDENT.ipynb) | [S3 slides](https://santialferez.github.io/FDLE/S3_Sampling_RNN/S3_Sampling_RNN.html) | [S3_Sampling_RNN/](S3_Sampling_RNN/) |
+
+## Course helper library (`fdle`)
+
+Starting in S3, the notebooks use the lightweight `fdle` helper package in this repository (`fdle.fit`, `fdle.cross_validate`, `fdle.bootstrap_ci`, `fdle.SimpleVocab`, `fdle.ResultsTable`, `fdle.show_source`). Cell `S3·0` installs it automatically in Colab:
+
+```bash
+pip install -q git+https://github.com/santialferez/FDLE.git
+```
 
 ## How to use the notebooks
 
 1. Click the Colab badge. The notebook opens in Google Colab (any Google account works).
 2. Runtime → Change runtime type → **T4 GPU**.
 3. File → Save a copy in Drive if you want to keep your work.
-4. S1: run cell A0 first (it downloads the data), then follow the slides. S2: run the setup cell S2·0 first, then start with the warm-up.
+4. S1: run cell A0 first (it downloads the data), then follow the slides. S2: run the setup cell S2·0 first, then start with the warm-up. S3: run cell S3·0 first (it installs `fdle` and caches CIFAR-10 and IMDB), then follow the slides.
 
 S2: the code companion explains every cell of the notebook, with diagrams and a hint for every blank (no solutions).
 
