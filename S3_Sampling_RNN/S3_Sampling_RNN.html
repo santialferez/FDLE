@@ -1814,19 +1814,19 @@ Santiago Alférez
 <p><strong>Today</strong> · Many-to-one: one sentiment label per review. <strong>Next week</strong> · Attention for many-to-many tasks such as translation.</p>
 </div>
 </section>
-<section id="lab-2-close-the-gap-or-beat-bag-of-words" class="slide level2 lab-slide" data-crumb="BLOCK 2 · LAB 2" style="font-size: 68%;">
+<section id="lab-2-close-the-gap-or-beat-bag-of-words" class="slide level2 lab-slide" data-crumb="BLOCK 2 · LAB 2" style="font-size: 64%;">
 <h2>▶ Lab 2 · Close the gap or beat Bag-of-Words</h2>
 <div class="columns">
 <div class="column" style="width:62%;">
 <div class="turn-card">
 <ul>
-<li><strong>▶ S3·L2·1 · 10 min.</strong> Run the IMDB Bag-of-Words baseline. Edit <code>MY_REVIEWS</code> to make a word-order trap.</li>
-<li><strong>⚙ S3·L2·2 · 15 min.</strong> Try <code>CELL = &quot;rnn&quot;</code>, <code>&quot;gru&quot;</code>, and <code>&quot;lstm&quot;</code>. Keep other settings fixed and test both reviews.</li>
-<li><strong>✏️ S3·L2·3 · 15 min.</strong> Copy <code>BASE_CONFIG</code> into <code>MY_CONFIG</code>. Change one knob at a time and log each run in <code>RESULTS</code>. Aim to close the gap or beat Bag-of-Words.</li>
+<li><strong>▶ S3·L2·1 · 8 min.</strong> Run the IMDB Bag-of-Words baseline. Edit <code>MY_REVIEWS</code> to build a word-order trap.</li>
+<li><strong>⚙ S3·L2·2a–b · 12 min.</strong> Worked example step by step: inspect <code>SimpleVocab</code>, padding, and <code>(B, L, E)</code> shapes, then run <code>SimpleRNNClassifier</code> with <code>fdle.fit</code> and test the trap.</li>
+<li><strong>✏️ S3·L2·3 · 20 min.</strong> Exercise 1: write your own <code>MyTextRNN</code> (bidirectional, 2 layers, dropout, or LSTM), pass <code>S3·L2·3·check</code>, and log each run in <code>RESULTS</code> to close the gap or beat Bag-of-Words.</li>
 </ul>
 </div>
 <div class="box blue">
-<p><strong>Optional · S3·L2·STAR</strong> · Try four-class tweet sentiment after the main lab.</p>
+<p><strong>Optional · S3·L2·STAR</strong> · Exercise 2 (transfer): adapt BoW and a 4-class RNN to <code>progressive-tweet-sentiment.csv</code> (Macro-F1) from the starter skeleton.</p>
 </div>
 </div><div class="column" style="width:38%;">
 <div class="cnn-widget" data-widget="timer" data-min="40" data-until="15:25">
